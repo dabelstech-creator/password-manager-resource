@@ -1,0 +1,54 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bindings Schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "domain": {
+        "type": "string",
+        "description": "The domain this binding applies to (e.g., example.com)"
+      },
+      "app_ids": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Apple App IDs or bundle identifiers associated with the domain"
+      },
+      "binding_type": {
+        "type": "string",
+        "enum": ["shared-credentials", "passkey", "association", "legacy"],
+        "description": "The kind of binding represented by this entry"
+      },
+      "trust_level": {
+        "type": "string",
+        "enum": ["observed", "tested", "verified"],
+        "description": "How confident we are in the binding",
+        "default": "observed"
+      },
+      "device_scope": {
+        "type": "string",
+        "enum": ["device-bound", "device-independent", "unverified"],
+        "description": "Whether the credential is bound to a device or not",
+        "default": "unverified"
+      },
+      "source_evidence": {
+        "type": "array",
+        "items": { "type": "string" },
+        "description": "Human- or machine-readable evidence (urls, notes, test results) supporting this binding"
+      },
+      "last_reviewed": {
+        "type": "string",
+        "format": "date",
+        "description": "ISO date when this entry was last reviewed"
+      },
+      "status": {
+        "type": "string",
+        "enum": ["active", "historical", "deprecated", "blocked"],
+        "default": "active",
+        "description": "Lifecycle status for the entry"
+      }
+    },
+    "required": ["domain", "binding_type"],
+    "additionalProperties": false
+  }
+}
