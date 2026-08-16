@@ -1,0 +1,22 @@
+﻿[
+  {
+    "domain": "example.com",
+    "app_ids": ["ABCDE12345.com.example.app"],
+    "binding_type": "passkey",
+    "trust_level": "observed",
+    "device_scope": "device-bound",
+    "source_evidence": ["https://example.com/docs/passkey"],
+    "last_reviewed": "2026-08-16",
+    "status": "active"
+  },
+  {
+    "domain": "airbnb.com",
+    "app_ids": ["com.airbnb.app"],
+    "binding_type": "shared-credentials",
+    "trust_level": "tested",
+    "device_scope": "device-independent",
+    "source_evidence": ["community-reported"],
+    "last_reviewed": "2026-01-01",
+    "status": "active"
+  }
+]
